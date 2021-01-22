@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<script src="https://cdn.jsdelivr.net/npm/simple-js-filereader@1.3.6/index.min.js"></script>
+	<script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+
+</head>
+
+    <body>
+      <br>
+      <center><h1 style="color: white; font-family: sans-serif">w3gram .</h1></center>
+  <div class="container">
+    <div class="form-container">
+      <div class="head">
+        <h3>Sign Up</h3>
+        <button id ="test"></button>
+        <p>join the waiting list of an all new social experiment network</p>
+      </div>
+      <form class="Inputs">
+        <label for="username">Username</label>
+        <input id="username" name="Username" value="" />
+        <label for="jwk">import your wallet</label>
+		<input type="file" id="jwk" onchange="readJwk(this)" >
+      </form>
+      
+      <button id="button" onclick=" getWalletUniqueness()">Sign Up</button>
+
+  </div>
+<script type="text/javascript" src="register.js"></script>
+</body>
+
+</html>

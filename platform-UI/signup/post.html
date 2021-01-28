@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-js-filereader@1.3.6/index.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.4/markdown-it.js" integrity="sha512-/axhvAvhmeYg3oDQVwNJNQbjlVmAm9HWdB1GE9kgQQB2V/xncynHqMpb5aouIRAMzjyMe4cvN4c6ZZWCyA8JJw==" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="post-style.css">
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+<div class="mainDiv">
+<!--title-->
+  <div class="title">
+  
+    <a id="post" >
+         <i class="fa fa-pencil" aria-hidden="true"></i>
+    Tap To Publish - Open Square</a>
+
+
+    
+  
+   
+    <p><i class="fa fa-times" aria-hidden="true"></i>
+</p>
+  </div>
+
+
+
+<div id="body">
+  <!--img and textarea-->
+  <div class="imtcontainer">
+    <div class="img">
+        
+    </div>
+    <div class="textarea" >
+      <textarea onkeyup="InputAdjust(this)" placeholder="post permanently..." id="post-text"></textarea>
+      <script type="text/javascript">
+        
+        function InputAdjust(o) {
+        o.style.height = "1px";
+        o.style.height = (40+o.scrollHeight)+"px";
+    }
+
+      </script>
+    </div>
+
+
+  </div>
+
+  <div class="line">
+
+</div>
+
+
+<br><br>
+<!-- <center><input type="file" name="jwk" onchange="readFile(this)"></center><br> -->
+<center><div id="wrapper">
+  <p id="username-holder">Drop or Tap To Upload Your JWK file</p>
+  <br>
+  <div id="fileDropBox" ><input type="file" name="jwk" onchange="readFile(this)">
+    
+   
+
+
+  </div>
+
+
+  </div>
+  
+  <!-- Provides the alert() method. -->
+</div></center>
+<br>
+ 
+</div>
+
+
+
+
+
+</body>
+
+
+<script type="text/javascript" src="post.js"></script>
+</html>

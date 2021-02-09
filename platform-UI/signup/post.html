@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/simple-js-filereader@1.3.6/index.min.js"></script>
+  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.4/markdown-it.js" integrity="sha512-/axhvAvhmeYg3oDQVwNJNQbjlVmAm9HWdB1GE9kgQQB2V/xncynHqMpb5aouIRAMzjyMe4cvN4c6ZZWCyA8JJw==" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" type="text/css" href="post-style.css">
@@ -21,7 +22,7 @@
   
     <a id="post" >
          <i class="fa fa-pencil" aria-hidden="true"></i>
-    Tap To Publish - Open Square</a>
+    Tap To Publish - Public Square</a>
 
 
     
@@ -36,8 +37,9 @@
 <div id="body">
   <!--img and textarea-->
   <div class="imtcontainer">
-    <div class="img">
-      <img id="pfp" src="https://arweave.net/_nJHOfvIGxUd6_V2T3R0ivkmL0LHi7Z-Fci5ZvxDO8E">  
+    <div class="img" >
+      <img id="pfp" src="https://arweave.net/_nJHOfvIGxUd6_V2T3R0ivkmL0LHi7Z-Fci5ZvxDO8E">
+        
     </div>
     <div class="textarea" >
       <textarea onkeyup="InputAdjust(this)" placeholder="post permanently..." id="post-text"></textarea>
@@ -61,30 +63,31 @@
 
 <br><br>
 
-<center><div id="wrapper">
-  <p id="username-holder">Drop or Tap To Upload Your JWK file</p>
-  <br>
-  <div id="fileDropBox" ><input type="file" name="jwk" onchange="readFile(this)">
-    
-   
+<center>
 
+  <div id="wrapper">
+    <p id="username-holder">Import Your JWK file</p>
+    <br>
+    <div id="fileDropBox" >
 
-  </div>
+      <input type="file" name="jwk" onchange="readFile(this)">
+
+    </div>
 
 
   </div>
   
-</div></center>
+
+
+</center>
 <br>
  
 </div>
 
-
-
-
-
+<script type="text/javascript" src="post.js"></script>
 </body>
 
 
-<script type="text/javascript" src="post.js"></script>
+
 </html>
+

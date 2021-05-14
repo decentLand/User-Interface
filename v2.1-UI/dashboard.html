@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="twitter:title" content="Decentland Usernames System">
+  <meta name="twitter:description" content="signup, mint usernames, and update your Profile">
+  <meta name="twitter:image" content="https://arweave.net/RUaij2IDIpPVjhfcb4LnW8RIClr_gFTzwxovFfPoXxg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+  <!-- smartweave API -->
+  <script type="text/javascript" src="https://arweave.net/wBXD4J132doyWofNbLGua2kiSYjiPZey6P2iTr-lb8M"></script>
+  <script type="text/javascript" src="https://arweave.net/1Lbty7PPOx_aNWL1fYQ6KBtN9wKaf35MI8Xdf7C_xeQ"></script>
+  <link rel="icon" type="image/png" href="https://arweave.net/RUaij2IDIpPVjhfcb4LnW8RIClr_gFTzwxovFfPoXxg" >
+  <link rel="stylesheet" type="text/css" href="turbo.css">
+
+  <meta charset="UTF-8">
+	<title>Usernames Dashboard</title>
+
+</head>
+<body>
+	<div class="top-menu-bar">
+		<a href="https://docs.decent.land">./docs</a>
+		<a href="https://decent.land">../homepage</a>
+		<a href="https://decent.land/v2/t">./t/PublicSquare</a>
+		<a href="https://github.com">@github</a>
+	    <a href="https://t.me/decentland">@telegram</a>
+	    <a href="https://twitter.com/decentland_">@twitter</a>
+	</div> <br/>
+	
+	
+	<div class="blue window">
+		<h1>DecentLand Usernames System</h1>
+		<center>
+			<i>testnet SWC: RUsVtU-kywFWf63XivMPPM2o3hmP7xRQYdlwEk52paA</i>
+		</center>
+	</div>
+
+	<div class="blue window">
+		<button id="button-connect" onclick="linkArconnect()">Connect Arconnect 🦔</button>
+		<p id="address"></p>
+	</div>
+
+
+	<div class="window white">
+		<h3>Before you mint a username, check if it's available!</h3>
+		<label>Input the desired username</label>
+		<input type="text" id="check-username" placeholder="e.g. arweave">
+		<button onclick="checkUsername()">check 🔍</button>
+		<p id="loader"></p>
+	</div>
+
+  
+  	<div class="window white">
+  		<center><h3>Sign Up</h3></center>
+      <form class="Inputs">
+        <label for="username">Choose a Username</label>
+        <input id="username" name="Username" value="" placeholder="1-7 character" />
+        <label for="bio">Bio</label>
+        <input id = "bio" type="text" name="Bio" maxlength="75" placeholder="max 75 character">
+        <label for="pfp">Profile Picture TXID - </label> <i onclick='generateRandomPfp()'>tap to generate a random picture</i>
+        <input type="text" name="pfp" id="pfp">
+        <label for="friendzone">Friendzone Percentage %</label>
+        <input type="number" id="friendzone" placeholder="10-90%">
+      </form>
+      
+      <button id="button" onclick="signup()">Sign Up</button>
+
+  </div>
+
+   <div class="blue window" >
+  	<fieldset style="float: left">
+  		<legend><b>Arweave network stats</b></legend>
+  		<p id="peers">Peers:</p>
+  		<p id="height">Height:</p>
+  		<p id="blocks">Blocks:</p>
+  	</fieldset>
+  		<fieldset>
+  		<legend><b>DecentLand Protocol stats</b></legend>
+  		<p id="users">Registered Users: <span class="loading"></span></p>
+  		<p id="minted-usernames">Minted Usernames: <span class="loading"></span></p>
+  		<p id="last-username">Last Minted Username: <span class="loading"></span></p>
+  	</fieldset>
+  </div>
+
+  <div class="window white">
+  	<h3>About Usernames</h3>
+  	<p>usernames represent unique tokens under DecentLand data protocol. Each username belongs to a Token-Type according to its length.</p>
+  	<p>DecentLand usernames are mintable, transferable, and tradable assets. The username's owner (aka holder) have full access over the username's ownership.</p>
+  	<button onclick="window.location.href='https://github.com/decentLand/Decentland-Directory/blob/main/docs/contracts.md#usernames'">learn more</button>
+  </div>
+
+<script type="text/javascript" src="dashboard.js"></script>
+</body>
+</html>

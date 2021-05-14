@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="twitter:title" content="Decentland Usernames System">
+  <meta name="twitter:description" content="signup, mint usernames, and update your Profile">
+  <meta name="twitter:image" content="https://arweave.net/RUaij2IDIpPVjhfcb4LnW8RIClr_gFTzwxovFfPoXxg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+  <!-- smartweave API -->
+  <script type="text/javascript" src="https://arweave.net/wBXD4J132doyWofNbLGua2kiSYjiPZey6P2iTr-lb8M"></script>
+  <script type="text/javascript" src="https://arweave.net/1Lbty7PPOx_aNWL1fYQ6KBtN9wKaf35MI8Xdf7C_xeQ"></script>
+  <link rel="icon" type="image/png" href="https://arweave.net/RUaij2IDIpPVjhfcb4LnW8RIClr_gFTzwxovFfPoXxg" >
+  <link rel="stylesheet" type="text/css" href="./turbo.css">
+
+  <meta charset="UTF-8">
+	<title>Tribuses Factory: create a Tribus for your DAO</title>
+
+</head>
+<body>
+	<div class="top-menu-bar">
+    <a href="./dashboard.html">./dashboard</a>
+		<a href="https://docs.decent.land">../docs</a>
+		<a href="https://decent.land">../homepage</a>
+		<a href="https://decent.land/v2/t">../t/PublicSquare</a>
+		<a href="https://github.com">@github</a>
+	    <a href="https://t.me/decentland">@telegram</a>
+	    <a href="https://twitter.com/decentland_">@twitter</a>
+	</div> <br/>
+	
+	
+	<div class="blue window">
+		<h1>Tribuses Factory</h1>
+	</div>
+
+  <div class="blue window">
+    <button id="button-connect" onclick="linkArconnect()">Connect Arconnect 🦔</button>
+    <p id="address"></p>
+  </div>
+
+  <div class="window white">
+    <h3>About Tribus</h3>
+    <p>A Tribus is a wrapper around an Arweave DAO, which is known for Profit Sharing Community or PSC.</p>
+    <p>The Tribus extends the DAO functionalities by creating and adding a social experience for it. By aggregating FinTech with Governance Policy,
+    the Tribus can potentially re-enforce the its DAO's tokenomics.</p>
+    <i>Only the PSC create is allowed to create and update the DAO's Tribus</i>
+  </div>
+
+  <div class="window white">
+      <center><h3>Create a Tribus</h3></center>
+      <form class="Inputs">
+        <label for="tribus-name">Tribus Name</label>
+        <input id="tribus-name" value="" placeholder="1-7 character" />
+        <label for="tribus-id">Tribus ID: the PSC ID</label>
+        <input id = "tribus-id" type="text" maxlength="43" minlength="43" placeholder="Your CommunityXYZ PSC ID">
+        <label for="membership-entry">membership entry</label>
+        <input type="number" id="membership-entry" placeholder="min staked tokens of your PSTs" min="0">
+        <label for="post-visibility">post visibility</label>
+        <input type="number" id="post-visibility" placeholder="min held tokens of your PSTs" min="0">
+        <label for="description">description</label>
+        <input type="text" name="description" id="description">
+      </form>
+      <br>
+      <button id="button" onclick="create()">Create Tribus</button>
+
+  </div>
+
+<script type="text/javascript" src="./factory.js"></script>
+</body>
+</html>

@@ -79,8 +79,6 @@ async function signup() {
     console.log(tx)
 }
 
-
-
 async function linkArconnect() {
     
     if (! await window.arweaveWallet) {
@@ -104,28 +102,74 @@ async function logout() {
 }
 
 async function checkUsername() {
+    const username = document.getElementById("check-username").value
+    
+    if (username.length === 0 ) {
+        swal({title: "Search Error", text: "please input a username", icon: "error"})
+    }
+    
     document.getElementById("loader").innerHTML = `checking username... Please wait`
     const usernameContract = await readState(arweave, "RUsVtU-kywFWf63XivMPPM2o3hmP7xRQYdlwEk52paA")
-    
-    const username = document.getElementById("check-username").value
-        for (char of username) {
+
+        for (let char of username) {
         if (char.charCodeAt(0) < 97 || char.charCodeAt(0) > 122){
-            alert("invalid character inserted. Only lowercase alphabetical letters")
+            swal({title: "Search Error", text: "invalid character inserted. Only lowercase alphabetical letters", icon: "error"})
             return
         }
     }
 
     if (username.length < 1 || username.length > 7 || typeof username !== "string") {
-        alert("invalid username type")
+        swal({title: "Search Error", text: "invalid username type/length", icon: "error"})
         return
     }
 
     if (usernameContract["mintedTokens"].includes(username)) {
-        document.getElementById("loader").innerHTML = `<p>username not available</p>`
+        const token = getUsernameTokenType(username)
+
+        for (let user in usernameContract["users"]) {
+            console.log(user)
+            if (token in usernameContract["users"][user]["tokens"]) {
+                if (usernameContract["users"][user]["tokens"][token]["usernames"].includes(username)) {
+                    document.getElementById("loader").innerHTML =
+                     `<b>@${username}</b> is owned by <a href="https://viewblock.io/arweave/address/${user}">${user}</a>`
+                }
+            }
+        }
+        
+        
     } else {
-        document.getElementById("loader").innerHTML = `<p>username available, check if you can still mint !</p>`
+        document.getElementById("loader").innerHTML = `<p>unminted username</p>`
     }
 }
 
+function getUsernameTokenType(username) {
+    let token;
+
+    switch (username.length) {
+        case 1:
+            token = "ichi"
+            break
+        case 2:
+            token = "ni"
+            break
+        case 3:
+            token = "san"
+            break
+        case 4:
+            token = "shi"
+            break
+        case 5:
+            token = "go"
+            break
+        case 6:
+            token = "roku"
+            break
+        case 7:
+            token = "shichi"
+            break
+        }
+
+    return token
+}
 
 setInterval(arweaveNetwork, 1000)

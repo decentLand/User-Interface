@@ -82,11 +82,17 @@ async function signup() {
 
 
 async function linkArconnect() {
+    
+    if (! await window.arweaveWallet) {
+        swal({title: "Arconnect Not Found", text: "Please download Arconnect from arconnect.io", icon: "error"})
+        return
+    }
     await window.arweaveWallet.connect(["ACCESS_ADDRESS", "ACCESS_ALL_ADDRESSES", "SIGN_TRANSACTION"]);
     const address = await window.arweaveWallet.getActiveAddress();
     document.getElementById("button-connect").innerText = "logout 🚪"
     document.getElementById("button-connect").setAttribute("onClick", "logout()")
     document.getElementById("address").innerText = `active wallet: ${address}`
+    isLogged = true
 }
 
 async function logout() {
@@ -94,7 +100,7 @@ async function logout() {
     document.getElementById("button-connect").innerText = "Connect Arconnect 🦔 "
     document.getElementById("address").innerText = ''
     document.getElementById("button-connect").setAttribute("onClick", "linkArconnect()")
-
+    isLogged = false
 }
 
 async function checkUsername() {

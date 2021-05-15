@@ -41,12 +41,12 @@ async function signup() {
     }
 
     if (username.length < 1 || username.length > 7 || typeof username !== "string") {
-        alert("invalid username")
+        swal({title: "Input Error", text: "Invalid username", icon: "error"})
         return
     }
 
     if (bio.length > 75 || typeof username !== "string") {
-        alert("invalid bio")
+        swal({title: "Input Error", text: "Invalid username", icon: "error"})
         return
     }
 
@@ -55,12 +55,12 @@ async function signup() {
     }
 
     if (!(Number.isInteger(friendzone))) {
-        alert("only integer values are allowed")
+        swal({title: "Input Error", text: "Only integer values are allowed for Friendzone", icon: "error"})
         return
     }
 
     if (friendzone < 10 || friendzone > 90) {
-        alert("friendzone % must be between 10-90")
+        swal({title: "Input Error", text: "friendzone % must be between 10-90", icon: "error"})
         return
     }
 
@@ -75,7 +75,7 @@ async function signup() {
     tx.addTag("input", `{"function": "signup", "username": "${username}", "bio": "${bio}", "friendzonePercentage": ${friendzone}, "pfp": "${pfp}"}`)
 
     await window.arweaveWallet.sign(tx);
-
+    swal({title: "Registration", text: `Register TX Sent Successfully: ${tx.id}`, icon: "success"})
     console.log(tx)
 }
 

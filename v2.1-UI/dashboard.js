@@ -2,7 +2,7 @@ const arweave = Arweave.init({
     host: "arweave.net",
     protocol: "https"
 });
-
+let isLogged = false
 const readState = smartweave.readContract;
 
 async function arweaveNetwork() {
@@ -23,14 +23,19 @@ async function decentlandProtocol(){
 decentlandProtocol()
 
 async function signup() {
+    
+    if (!isLogged) {
+        swal({title: "Undetected Wallet", text: "Please login using arconnect.io wallet", icon: "error"})
+        return
+    }
     const username = document.getElementById("username").value
     const bio = document.getElementById("bio").value
-    const pfp = document.getElementById("pfp").value
+    let pfp = document.getElementById("pfp").value
     const friendzone = document.getElementById("friendzone").value
 
-    for (char of username) {
+    for (let char of username) {
         if (char.charCodeAt(0) < 97 || char.charCodeAt(0) > 122){
-            alert("invalid character inserted. Only lowercase alphabetical letters")
+            swal({title: "Input Error", text: "invalid character inserted. Only lowercase alphabetical letters", icon: "error"})
             return
         }
     }

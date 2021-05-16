@@ -31,7 +31,7 @@ async function signup() {
     const username = document.getElementById("username").value
     const bio = document.getElementById("bio").value
     let pfp = document.getElementById("pfp").value
-    const friendzone = document.getElementById("friendzone").value
+    const friendzone = Number(document.getElementById("friendzone").value)
 
     for (let char of username) {
         if (char.charCodeAt(0) < 97 || char.charCodeAt(0) > 122){
@@ -106,6 +106,7 @@ async function checkUsername() {
     
     if (username.length === 0 ) {
         swal({title: "Search Error", text: "please input a username", icon: "error"})
+        return
     }
     
     document.getElementById("loader").innerHTML = `checking username... Please wait`

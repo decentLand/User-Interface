@@ -74,7 +74,7 @@ async function signup() {
     tx.addTag("Contract-Src", "RUsVtU-kywFWf63XivMPPM2o3hmP7xRQYdlwEk52paA")
     tx.addTag("input", `{"function": "signup", "username": "${username}", "bio": "${bio}", "friendzonePercentage": ${friendzone}, "pfp": "${pfp}"}`)
 
-    await window.arweaveWallet.sign(tx);
+    await arweave.transactions.sign(tx)
     swal({title: "Registration", text: `Register TX Sent Successfully: ${tx.id}`, icon: "success"})
     console.log(tx)
 }

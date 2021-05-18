@@ -66,7 +66,7 @@ async function create() {
     tx.addTag("Contract-Src", "R-QcFFg0v-V9Rj85zSXiA6vzsKbynDNCes7Ttz-PXLw")
     tx.addTag("input", `{"function": "createTribus", "name": "${name}", "id": "${id}", "membership": ${entry}, "visibility": ${visibility}, "description": ${description}}`)
 
-    await window.arweaveWallet.sign(tx);
+    await arweave.transactions.sign(tx)
 
     console.log(tx)
 }

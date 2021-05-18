@@ -3,7 +3,7 @@ const arweave = Arweave.init({
 	protocol: "https"
 })
 
-let status = false;
+let isLogged = false;
 
 async function linkArconnect() {
     await window.arweaveWallet.connect(["ACCESS_ADDRESS", "ACCESS_ALL_ADDRESSES", "SIGN_TRANSACTION"]);
@@ -11,7 +11,7 @@ async function linkArconnect() {
     document.getElementById("button-connect").innerText = "logout 🚪"
     document.getElementById("button-connect").setAttribute("onClick", "logout()")
     document.getElementById("address").innerText = `active wallet: ${address}`
-    status = true;
+    isLogged = true;
 }
 
 async function logout() {
@@ -19,12 +19,12 @@ async function logout() {
     document.getElementById("button-connect").innerText = "Connect Arconnect 🦔 "
     document.getElementById("address").innerText = ''
     document.getElementById("button-connect").setAttribute("onClick", "linkArconnect()")
-    status = false;
+    isLogged = false;
 
 }
 
 async function create() {
-	if (!status) {
+	if (!isLogged) {
 		alert("Please login using Arconnect web extension")
 		return
 	}

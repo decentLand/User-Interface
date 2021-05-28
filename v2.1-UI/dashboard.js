@@ -71,7 +71,7 @@ async function signup() {
     tx.addTag("Content-Type", "text/plain")
     tx.addTag("App-Name", "SmartWeaveAction")
     tx.addTag("App-Version", "0.3.0")
-    tx.addTag("Contract-Src", "RUsVtU-kywFWf63XivMPPM2o3hmP7xRQYdlwEk52paA")
+    tx.addTag("Contract-Src", "x0UlfULWsYGNttZf4QTIEuIvedjsYQtaHh_yOfyhOWg")
     tx.addTag("input", `{"function": "signup", "username": "${username}", "bio": "${bio}", "friendzonePercentage": ${friendzone}, "pfp": "${pfp}"}`)
 
     await arweave.transactions.sign(tx)

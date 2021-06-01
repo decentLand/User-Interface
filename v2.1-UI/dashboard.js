@@ -5,7 +5,7 @@ const arweave = Arweave.init({
 const readState = smartweave.readContract;
 let isLogged = false;
 let swc;
-let pubKey;
+let pubkey;
 
 async function arweaveNetwork() {
     const network = await arweave.network.getInfo()

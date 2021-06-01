@@ -143,6 +143,50 @@ async function checkUsername() {
     }
 }
 
+async function mint() {
+    const username = document.getElementById("mint-username").value;
+
+    if (! swc) {
+        await loadContract()
+    }
+
+    if (! isLogged) {
+        swal({title: "Undetected Wallet", text: "Please login using arconnect.io wallet", icon: "error"})
+        return
+    }
+
+    if (! swc["users"][pubkey]) {
+        swal({title: "Contract Error", text: "Please register to be able to mint a username", icon: "error"})
+        return
+    }
+
+    if (swc["users"][pubkey]["hasMinted"]) {
+        swal({title: "Contract Error", text: "You have already minted an username", icon: "error"})
+        return
+    }
+
+    if (username.length > 7 || username.length < 1) {
+        swal({title: "Input Error", text: "username must be between 1 and 7 characters", icon: "error"})
+        return
+    }
+
+    if (swc["mintedTokens"].includes(username)) {
+        swal({title: "Input Error", text: `username @${username} has been already minted`, icon: "error"})
+        return
+    }
+
+    tx.addTag("Content-Type", "text/plain")
+    tx.addTag("App-Name", "SmartWeaveAction")
+    tx.addTag("App-Version", "0.3.0")
+    tx.addTag("Contract-Src", "x0UlfULWsYGNttZf4QTIEuIvedjsYQtaHh_yOfyhOWg")
+    tx.addTag("input", `{"function": "mint", "username": "${username}"}`)
+
+    await arweave.transactions.sign(tx)
+    swal({title: "Registration", text: `Minting TX Sent Successfully: ${tx.id}`, icon: "success"})
+    console.log(tx)
+
+}
+
 function getUsernameTokenType(username) {
     let token;
 
@@ -174,3 +218,5 @@ function getUsernameTokenType(username) {
 }
 
 setInterval(arweaveNetwork, 1000)
+decentlandProtocol()
+loadContract()

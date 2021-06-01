@@ -2,9 +2,10 @@ const arweave = Arweave.init({
     host: "arweave.net",
     protocol: "https"
 });
-let isLogged = false
 const readState = smartweave.readContract;
+let isLogged = false;
 let swc;
+let pubKey;
 
 async function arweaveNetwork() {
     const network = await arweave.network.getInfo()
@@ -22,8 +23,6 @@ async function decentlandProtocol(){
     document.getElementById("users").innerHTML = `Registered Users: ${Object.keys(swc["users"]).length}`
     document.getElementById("minted-usernames").innerHTML = `Minted Usernames: ${swc["mintedTokens"].length}`
     document.getElementById("last-username").innerHTML = `Last Minted Username: @${swc["mintedTokens"][swc["mintedTokens"].length - 1]}`
-
-
 }
 
 async function signup() {

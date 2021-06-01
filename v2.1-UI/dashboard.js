@@ -4,6 +4,7 @@ const arweave = Arweave.init({
 });
 let isLogged = false
 const readState = smartweave.readContract;
+let swc;
 
 async function arweaveNetwork() {
     const network = await arweave.network.getInfo()
@@ -12,15 +13,18 @@ async function arweaveNetwork() {
     document.getElementById("peers").innerHTML = `Peers: ${network["peers"]}`
 }
 
+async function loadContract() {
+    swc = await readState(arweave, "x0UlfULWsYGNttZf4QTIEuIvedjsYQtaHh_yOfyhOWg")
+    return
+}
 async function decentlandProtocol(){
-    const swc = await readState(arweave, "RUsVtU-kywFWf63XivMPPM2o3hmP7xRQYdlwEk52paA")
+    const swc = await readState(arweave, "x0UlfULWsYGNttZf4QTIEuIvedjsYQtaHh_yOfyhOWg")
     document.getElementById("users").innerHTML = `Registered Users: ${Object.keys(swc["users"]).length}`
     document.getElementById("minted-usernames").innerHTML = `Minted Usernames: ${swc["mintedTokens"].length}`
     document.getElementById("last-username").innerHTML = `Last Minted Username: @${swc["mintedTokens"][swc["mintedTokens"].length - 1]}`
 
 
 }
-decentlandProtocol()
 
 async function signup() {
     
@@ -87,6 +91,7 @@ async function linkArconnect() {
     }
     await window.arweaveWallet.connect(["ACCESS_ADDRESS", "ACCESS_ALL_ADDRESSES", "SIGN_TRANSACTION"]);
     const address = await window.arweaveWallet.getActiveAddress();
+    pubkey = address
     document.getElementById("button-connect").innerText = "logout 🚪"
     document.getElementById("button-connect").setAttribute("onClick", "logout()")
     document.getElementById("address").innerText = `active wallet: ${address}`
@@ -110,7 +115,7 @@ async function checkUsername() {
     }
     
     document.getElementById("loader").innerHTML = `checking username... Please wait`
-    const usernameContract = await readState(arweave, "RUsVtU-kywFWf63XivMPPM2o3hmP7xRQYdlwEk52paA")
+    const usernameContract = await readState(arweave, "x0UlfULWsYGNttZf4QTIEuIvedjsYQtaHh_yOfyhOWg")
 
         for (let char of username) {
         if (char.charCodeAt(0) < 97 || char.charCodeAt(0) > 122){

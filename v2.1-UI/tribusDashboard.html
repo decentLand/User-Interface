@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DecentLand: a land of DAOs</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="twitter:title" content="Decentland Tribus Dashboard">
+  <meta name="twitter:description" content="Tribuses Dashboard">
+  <meta name="twitter:image" content="https://arweave.net/RUaij2IDIpPVjhfcb4LnW8RIClr_gFTzwxovFfPoXxg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- smartweave API -->
+  <script type="text/javascript" src="https://arweave.net/wBXD4J132doyWofNbLGua2kiSYjiPZey6P2iTr-lb8M"></script>
+  <script type="text/javascript" src="https://arweave.net/1Lbty7PPOx_aNWL1fYQ6KBtN9wKaf35MI8Xdf7C_xeQ"></script>
+
+  <link rel="stylesheet" type="text/css" href="./turbo.css">
+</head>
+<body>
+
+	<div class="blue window">
+		<h1 id="tribusName">Tribus</h1>
+		<center> <i id="bio"></i> </center>
+	</div>
+
+   <div class="window white" >
+
+  	<fieldset>
+  		<legend><b>Tribus Idendity</b></legend>
+  		<p id="tribusMembership">Membership Entry: ...</p>
+  		<p id="tribusPostVisibility">Post Visibility: ...</p>
+  		<p id="tribusLastUpdate">Last Update ID: ...</p>
+
+  	</fieldset>
+  </div>
+
+<div class="blue window">
+	
+	<fieldset style="float: center">
+  		<legend><b>Arweave network stats</b></legend>
+  		<p id="peers">Peers: ...</p>
+  		<p id="height">Height: ...</p>
+  		<p id="blocks">Blocks: ...</p>
+  	
+  	</fieldset>
+</div>
+
+<script type="text/javascript" src="./tribusDashboard.js"></script>
+</body>
+</html>

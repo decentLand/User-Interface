@@ -76,7 +76,7 @@ async function parse_psc_data(pscObject) {
 	pscLogo.innerHTML = `<img style="max-height: 100px; min-height: 100px" src="${gateway}/${logo}">`
 	pscVotes.innerHTML = `Votes Count: ${votesCount}`
 	pscTicker.innerHTML = `PSC Ticker: $${ticker}`
-	pscVerto.innerHTML = `<button onclick="window.location.href='${verto}${tribusID}'">Trade On Verto</button>`
+	pscVerto.innerHTML = `<button onclick="window.location.href='${verto}${tribusID}'">Trade $${ticker} On Verto</button>`
 	pscCxyz.innerHTML = `<button onclick="window.location.href='${communityXYZ}${tribusID}'">CommunityXYZ</button>`
 	pscHolders.innerHTML = `<button onclick="window.location.href='${viewblockHolders}${tribusID}?tab=holders'">Holders List</button>`
 
